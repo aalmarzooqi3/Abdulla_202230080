@@ -1,0 +1,186 @@
+class Customer:
+    def __init__(self, name, emaritsID, age, email, phoneNumber):
+        self.__name = name
+        self.__emaritsID = emaritsID
+        self.__age = age
+        self.__email = email
+        self.__phoneNumber = phoneNumber
+
+    # Setter and Getter methods
+    def setName(self, name):
+        self.__name = name
+
+    def getName(self):
+        return self.__name
+
+    def setEmaritsID(self, emaritsID):
+        self.__emaritsID = emaritsID
+
+    def getEmaritsID(self):
+        return self.__emaritsID
+
+    def setAge(self, age):
+        self.__age = age
+
+    def getAge(self):
+        return self.__age
+
+    def setEmail(self, email):
+        self.__email = email
+
+    def getEmail(self):
+        return self.__email
+
+    def setPhoneNumber(self, phoneNumber):
+        self.__phoneNumber = phoneNumber
+
+    def getPhoneNumber(self):
+        return self.__phoneNumber
+
+# Reservation Class
+class Reservation:
+    def __init__(self, reservationID, customerName, checkInDate, checkOutDate, roomType, price):
+        self.reservationID = reservationID
+        self.customerName = customerName
+        self.checkInDate = checkInDate
+        self.checkOutDate = checkOutDate
+        self.roomType = roomType
+        self.price = price
+
+    # Setter and Getter methods
+    def setReservationID(self, reservationID):
+        self.reservationID = reservationID
+
+    def getReservationID(self):
+        return self.reservationID
+
+    def setCustomerName(self, customerName):
+        self.customerName = customerName
+
+    def getCustomerName(self):
+        return self.customerName
+
+    def setCheckInDate(self, checkInDate):
+        self.checkInDate = checkInDate
+
+    def getCheckInDate(self):
+        return self.checkInDate
+
+    def setCheckOutDate(self, checkOutDate):
+        self.checkOutDate = checkOutDate
+
+    def getCheckOutDate(self):
+        return self.checkOutDate
+
+    def setRoomType(self, roomType):
+        self.roomType = roomType
+
+    def getRoomType(self):
+        return self.roomType
+
+    def setPrice(self, price):
+        self.price = price
+
+    def getPrice(self):
+        return self.price
+
+# Room Class
+class Room:
+    def __init__(self, roomNumber, roomType, seaView, pricePerNight):
+        self.roomNumber = roomNumber
+        self.roomType = roomType
+        self.seaView = seaView
+        self.pricePerNight = pricePerNight
+
+    # Setter and Getter methods
+    def setRoomNumber(self, roomNumber):
+        self.roomNumber = roomNumber
+
+    def getRoomNumber(self):
+        return self.roomNumber
+
+    def setRoomType(self, roomType):
+        self.roomType = roomType
+
+    def getRoomType(self):
+        return self.roomType
+
+    def setSeaView(self, seaView):
+        self.seaView = seaView
+
+    def getSeaView(self):
+        return self.seaView
+
+    def setPricePerNight(self, pricePerNight):
+        self.pricePerNight = pricePerNight
+
+    def getPricePerNight(self):
+        return self.pricePerNight
+
+# Payment Class
+class Payment:
+    def __init__(self, paymentID, paymentMethod, amount):
+        self.paymentID = paymentID
+        self.paymentMethod = paymentMethod
+        self.amount = amount
+
+    # Setter and Getter methods
+    def setPaymentID(self, paymentID):
+        self.paymentID = paymentID
+
+    def getPaymentID(self):
+        return self.paymentID
+
+    def setPaymentMethod(self, paymentMethod):
+        self.paymentMethod = paymentMethod
+
+    def getPaymentMethod(self):
+        return self.paymentMethod
+
+    def setAmount(self, amount):
+        self.amount = amount
+
+    def getAmount(self):
+        return self.amount
+
+# Simulating the hotel reservation process
+if __name__ == "__main__":
+    # Create a Customer
+    customer1 = Customer("Abdulla Almarzooqi", "784-2001-2022300-80", 23, "aa.almarzooqi3@gmail.com", "0567891099")
+    
+    # Create a Room
+    room1 = Room(111, "Single", True, 250.00)
+    
+    # Create a Reservation
+    totalPrice = room1.getPricePerNight() * 5  # Example: 5 nights stay
+    reservation1 = Reservation(112001, customer1.getName(), "25/09/2024", "30/09/2024", room1.getRoomType(), totalPrice)
+    
+    # Create a Payment
+    payment1 = Payment(22133, "Credit Card", totalPrice)
+    
+    # Display Information directly using print statements
+    print("Customer Information:")
+    print("Name: ", customer1.getName())
+    print("Emarits ID: ", customer1.getEmaritsID())
+    print("Age: ", customer1.getAge())
+    print("Email: ", customer1.getEmail())
+    print("Phone Number: ", customer1.getPhoneNumber())
+    print("--------------")
+    print("Room Information:")
+    print("Room Number: ", room1.getRoomNumber())
+    print("Room Type: ", room1.getRoomType())
+    print("Sea View: ", "Yes" if room1.getSeaView() else "No")
+    print("Price Per Night: ", room1.getPricePerNight(), " AED")
+    print("--------------")
+    print("Reservation Information:")
+    print("Reservation ID: ", reservation1.getReservationID())
+    print("Customer Name: ", reservation1.getCustomerName())
+    print("Check-in Date: ", reservation1.getCheckInDate())
+    print("Check-out Date: ", reservation1.getCheckOutDate())
+    print("Room Type: ", reservation1.getRoomType())
+    print("Total Price: ", reservation1.getPrice(), " AED")
+    print("--------------")
+    print("Payment Information:")
+    print("Payment ID: ", payment1.getPaymentID())
+    print("Payment Method: ", payment1.getPaymentMethod())
+    print("Total Amount: ", payment1.getAmount(), " AED")
